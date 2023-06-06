@@ -58,8 +58,8 @@ export class GalleryController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(@Query() query: any): Promise<CommonResponseHandler> {
     const data = await this.galleryService.findAll(query);
@@ -71,8 +71,8 @@ export class GalleryController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':passportNo')
   async findOne(@Param('passportNo') passportNo: string) {
     const data = await this.galleryService.findOne(passportNo);

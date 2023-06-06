@@ -42,8 +42,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('date/:currentDate')
   async findAllByDate(
     @Param('currentDate') currentDate: Date,
@@ -58,8 +58,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('unique-id')
   async findOneByUniqueID(@Query() query: any) {
     const data = await this.medicalRegisterService.findOneByUniqueID(query);
@@ -72,8 +72,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {
     const data = await this.medicalRegisterService.findAll();
@@ -86,8 +86,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('generate')
   async generateSerialNo(): Promise<CommonResponseHandler> {
     const data = await this.medicalRegisterService.generateSerialNo();
@@ -100,8 +100,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   async findOneById(@Param('id') id: string): Promise<CommonResponseHandler> {
     console.log('id', id);
@@ -134,8 +134,8 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('pagination')
   async pagination(
     @Query('take') take: number,

@@ -29,8 +29,8 @@ export class NationalityController {
     return this.nationalityService.create(createNationalityDto);
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {
     const data = await this.nationalityService.findAll();

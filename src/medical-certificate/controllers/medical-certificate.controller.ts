@@ -42,8 +42,8 @@ export class MedicalCertificateController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {
     const data = await this.medicalCertificateService.findAll();
@@ -56,8 +56,8 @@ export class MedicalCertificateController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<CommonResponseHandler> {
     const data = await this.medicalCertificateService.findOne(+id);

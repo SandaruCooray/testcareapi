@@ -38,15 +38,15 @@ export class DoctorController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   findAll() {
     return this.doctorService.findAll();
   }
 
-  @HasRoles(Role.LEVEL_TEN)
-  @UseGuards(JwtAuthGuard, RolesGuard)
+  // @HasRoles(Role.LEVEL_TEN)
+  // @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   findOneById(@Param('id') id: string) {
     return this.doctorService.findOneById(+id);
