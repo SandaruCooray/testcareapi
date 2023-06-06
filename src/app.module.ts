@@ -40,7 +40,7 @@ dotenv.config();
         username: 'sandaru.rockstar96',//process.env.DB_POSTGRES_USER,
         password: 'pXjWc2QbKCJ9',//process.env.DB_POSTGRES_PASSWORD,
         database: 'care-cloud',//process.env.DB_POSTGRES_DATABASE,
-        entities: ['dist/*/.entity.{ts,js}'], //process.env.DB_POSTGRES_ENTITIES
+        entities: ['dist/*/entities/*.entity.{ts,js}'], //process.env.DB_POSTGRES_ENTITIES
         synchronize: true, //false
         ssl: true,
       }),
