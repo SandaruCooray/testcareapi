@@ -35,12 +35,12 @@ dotenv.config();
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
-        host: process.env.DB_POSTGRES_HOST,
-        port: parseInt(process.env.PORT),
-        username: process.env.DB_POSTGRES_USER,
-        password: process.env.DB_POSTGRES_PASSWORD,
-        database: process.env.DB_POSTGRES_DATABASE,
-        entities: [process.env.DB_POSTGRES_ENTITIES],
+        host: 'ep-wispy-sunset-925501.ap-southeast-1.aws.neon.tech',//process.env.DB_POSTGRES_HOST,
+        port: 5432,//parseInt(process.env.PORT),
+        username: 'sandaru.rockstar96',//process.env.DB_POSTGRES_USER,
+        password: 'pXjWc2QbKCJ9',//process.env.DB_POSTGRES_PASSWORD,
+        database: 'care-cloud',//process.env.DB_POSTGRES_DATABASE,
+        entities: ['dist/*/.entity.{ts,js}'], //process.env.DB_POSTGRES_ENTITIES
         synchronize: true, //false
         ssl: true,
       }),
