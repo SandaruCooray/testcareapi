@@ -1,0 +1,116 @@
+<html>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; } h2, b
+    { text-align: center; } .box-wrapper-inner { display: flex; justify-content:
+    space-around; align-items: flex-start; } .main-box-wrapper { display: flex;
+    align-items: center; justify-content: space-around; flex-direction: row;
+    margin-top: 40px; }
+  </style>
+  <body>
+    <h2>Ohlums Clinic & Laboratories(PVT) LTD</h2>
+    <p style='text-align:center;'>PARASITLOGY REPORT</p>
+
+    <table style='width: 100%'>
+      <tr>
+        <th>SERIAL NO</th>
+        <th>NAME</th>
+        <th>REF NO</th>
+        <th>PP NO</th>
+        <th>MICROFILARIA</th>
+        <th>MALRIALFILM</th>
+        <th>ANTIHCV</th>
+        <th>VDRL</th>
+      </tr>
+
+      {{#each reportData}}
+        <tr>
+          <td>{{this.serialNo}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.refNo}}</td>
+          <td>{{this.passport}}</td>
+          <td>{{this.microFilaria}}</td>
+          <td>{{this.malariaFilm}}</td>
+          <td>{{this.antiHCV}}</td>
+          <td>{{this.vdrl}}</td>
+        </tr>
+      {{/each}}
+    </table>
+
+    <div class='main-box-wrapper'>
+      <div>
+        <b>Test done by</b>
+        <div style='border: 1px solid #000'>
+          <div class='box-wrapper-inner'>
+            <div>HIV/HEP B/HCV :</div>
+            <div>
+              <p>.....................</p>
+              <p style='margin: 0'>MLT</p>
+            </div>
+          </div>
+          <div class='box-wrapper-inner'>
+            <div>VDRL :</div>
+            <div>
+              <p>.....................</p>
+              <p style='margin: 0'>MLT</p>
+            </div>
+          </div>
+        </div>
+        <div class='box-wrapper-inner'>
+          <div>
+            <p>.................................</p>
+            <p>Collected By (IT Department)</p>
+          </div>
+          <div>
+            <p>.................................</p>
+            <p>System Checked By</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class='box-wrapper-inner'>
+          <div>
+            <p>Reported by:</p>
+          </div>
+
+          <div>
+            <p>...............................</p>
+            <p>MLT/LTCN</p>
+          </div>
+        </div>
+
+        <div class='box-wrapper-inner'>
+          <div>
+            <p>Reviewed by:</p>
+          </div>
+
+          <div>
+            <p>.................................</p>
+            <p>Dr Visaka Ratnamalala</p>
+          </div>
+        </div>
+        <div></div>
+      </div>
+      <div>
+        <div class='box-wrapper-inner'>
+          <div>
+            <p>Checked by:</p>
+          </div>
+          <div>
+            <p>...............................</p>
+            <p>Microbiologist</p>
+          </div>
+        </div>
+
+        <div class='box-wrapper-inner'>
+          <div>
+            <p>Or</p>
+          </div>
+          <div>
+            <p>.................................</p>
+            <p>Dr. Bamini Nareinthirran</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

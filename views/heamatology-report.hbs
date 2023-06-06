@@ -1,0 +1,38 @@
+<html>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; } h2,p{
+    text-align: center; }
+  </style>
+  <body>
+
+    <h2 style='margin-bottom: 0;'>Ohlums Clinic & Laboratories(PVT) LTD</h2>
+    <p style='margin-bottom: 20px;'>Daily Lab report Biochemistry & Haematology</p>
+
+    <table style='width:100%'>
+      <tr>
+        <th>SERIAL NO</th>
+        <th>REF NO</th>
+        <th>PASSPORT NO</th>
+        <th>NAME</th>
+        <th>BLOOD GROUP</th>
+        <th>MALARIAFILM</th>
+        <th>MICROFILARIA</th>
+
+      </tr>
+
+      {{#each reportData}}
+        <tr>
+          <td>{{this.serialNo}}</td>
+          <td>{{this.refNo}}</td>
+          <td>{{this.passport}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.bloodGroup}}</td>
+          <td>{{this.malariaFilm}}</td>
+          <td>{{this.microFilaria}}</td>
+
+        </tr>
+      {{/each}}
+    </table>
+
+  </body>
+</html>

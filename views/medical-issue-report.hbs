@@ -1,0 +1,33 @@
+<html>
+  <style>
+    table, th, td { border: 1px solid black; border-collapse: collapse; } h2{
+    text-align: center; }
+  </style>
+  <body>
+
+    <h2>Medical issue Report</h2>
+
+    <table style='width:100%'>
+      <tr>
+        <th>PP</th>
+        <th>Customer Name</th>
+        <th>sex</th>
+        <th>Agency</th>
+        <th>Country</th>
+        <th>Issued By</th>
+      </tr>
+
+      {{#each reportData}}
+        <tr>
+          <td>{{this.passport}}</td>
+          <td>{{this.name}}</td>
+          <td>{{this.sex}}</td>
+          <td>{{this.agency}}</td>
+          <td>{{this.country}}</td>
+          <td>{{this.issuedBy}}</td>
+        </tr>
+      {{/each}}
+    </table>
+
+  </body>
+</html>
