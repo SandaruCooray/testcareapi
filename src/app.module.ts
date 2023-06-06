@@ -29,17 +29,27 @@ import { MmrPaymentModule } from './mmr-payment/modules/mmr-payment.module';
 
 dotenv.config();
 
+
+let  testEnv: any = process.env.DB_POSTGRES_HOST?process.env.DB_POSTGRES_HOST:"host"  +
+               process.env.DB_POSTGRES_PORT?process.env.DB_POSTGRES_PORT:"port"  +
+               process.env.DB_POSTGRES_USER?process.env.DB_POSTGRES_USER:"user"  +
+               process.env.DB_POSTGRES_PASSWORD?process.env.DB_POSTGRES_PASSWORD:"pw"  +
+               process.env.DB_POSTGRES_DATABASE?process.env.DB_POSTGRES_DATABASE:"db"  +
+               process.env.DB_POSTGRES_ENTITIES?process.env.DB_POSTGRES_ENTITIES:"entitie";  
+
+
+console.log(testEnv)
 @Module({
   imports: [
     // ConfigModule.forRoot({ envFilePath, isGlobal: true }),
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'postgres',
-        host: process.env.DB_POSTGRES_HOST,//process.env.DB_POSTGRES_HOST,
-        port: parseInt(process.env.PORT),//parseInt(process.env.PORT),
-        username: process.env.DB_POSTGRES_USER,//process.env.DB_POSTGRES_USER,
-        password: process.env.DB_POSTGRES_PASSWORD,//process.env.DB_POSTGRES_PASSWORD,
-        database: process.env.DB_POSTGRES_DATABASE,//process.env.DB_POSTGRES_DATABASE, //'care-cloud'
+        host: process.env.DB_POSTGRES_HOST,
+        port: parseInt(process.env.DB_POSTGRES_PORT),
+        username: process.env.DB_POSTGRES_USER,
+        password: process.env.DB_POSTGRES_PASSWORD,
+        database: process.env.DB_POSTGRES_DATABASE,
         entities:  [process.env.DB_POSTGRES_ENTITIES], //process.env.DB_POSTGRES_ENTITIES //'dist/*/entities/*.entity.{ts,js}'
         synchronize: true, //false
         ssl: true,
