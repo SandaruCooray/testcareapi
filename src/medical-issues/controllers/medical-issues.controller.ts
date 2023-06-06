@@ -23,7 +23,7 @@ import { CommonResponseHandler } from 'src/request-response-handlers/dtos/common
 export class MedicalIssuesController {
   constructor(private readonly medicalIssuesService: MedicalIssuesService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_EIGHT, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -48,7 +48,7 @@ export class MedicalIssuesController {
     return this.medicalIssuesService.findOne(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_EIGHT, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

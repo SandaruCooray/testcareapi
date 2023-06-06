@@ -24,7 +24,7 @@ export class MedicalRegistersController {
     private readonly medicalRegisterService: MedicalRegisterService,
   ) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_FOUR, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -42,7 +42,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('date/:currentDate')
   async findAllByDate(
@@ -58,7 +58,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('unique-id')
   async findOneByUniqueID(@Query() query: any) {
@@ -72,7 +72,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {
@@ -86,7 +86,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('generate')
   async generateSerialNo(): Promise<CommonResponseHandler> {
@@ -100,7 +100,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   async findOneById(@Param('id') id: string): Promise<CommonResponseHandler> {
@@ -115,7 +115,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(
@@ -134,7 +134,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get('pagination')
   async pagination(
@@ -150,7 +150,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_SIX, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch('/register-status/:id')
   async statusChange(

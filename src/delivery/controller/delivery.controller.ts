@@ -37,7 +37,7 @@ export class DeliveryController {
     return this.deliveryService.findOne(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TWO, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   update(

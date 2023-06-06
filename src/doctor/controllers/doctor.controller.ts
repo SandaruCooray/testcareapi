@@ -22,7 +22,7 @@ import { RolesGuard } from 'src/auth/gurds/roles.guard';
 export class DoctorController {
   constructor(private readonly doctorService: DoctorService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -38,21 +38,21 @@ export class DoctorController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   findAll() {
     return this.doctorService.findAll();
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   findOneById(@Param('id') id: string) {
     return this.doctorService.findOneById(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

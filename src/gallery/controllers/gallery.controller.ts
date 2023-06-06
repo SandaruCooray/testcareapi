@@ -27,7 +27,7 @@ import { Role } from 'src/auth/role-enum/role.enum';
 export class GalleryController {
   constructor(private readonly galleryService: GalleryService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_THREE, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   @UseInterceptors(
@@ -58,7 +58,7 @@ export class GalleryController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(@Query() query: any): Promise<CommonResponseHandler> {
@@ -71,7 +71,7 @@ export class GalleryController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':passportNo')
   async findOne(@Param('passportNo') passportNo: string) {

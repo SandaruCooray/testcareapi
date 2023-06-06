@@ -22,7 +22,7 @@ import { Role } from 'src/auth/role-enum/role.enum';
 export class DoctorRemarkController {
   constructor(private readonly doctorRemarkService: DoctorRemarkService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_ONE, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -49,7 +49,7 @@ export class DoctorRemarkController {
     return this.doctorRemarkService.findOne(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_ONE, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

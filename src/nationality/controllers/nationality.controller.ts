@@ -22,14 +22,14 @@ import { Role } from 'src/auth/role-enum/role.enum';
 export class NationalityController {
   constructor(private readonly nationalityService: NationalityService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   create(@Body() createNationalityDto: CreateNationalityDto) {
     return this.nationalityService.create(createNationalityDto);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {

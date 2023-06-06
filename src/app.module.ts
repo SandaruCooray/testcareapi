@@ -29,16 +29,6 @@ import { MmrPaymentModule } from './mmr-payment/modules/mmr-payment.module';
 
 dotenv.config();
 
-
-let  testEnv: any = process.env.DB_POSTGRES_HOST?process.env.DB_POSTGRES_HOST:"host"  +
-               process.env.DB_POSTGRES_PORT?process.env.DB_POSTGRES_PORT:"port"  +
-               process.env.DB_POSTGRES_USER?process.env.DB_POSTGRES_USER:"user"  +
-               process.env.DB_POSTGRES_PASSWORD?process.env.DB_POSTGRES_PASSWORD:"pw"  +
-               process.env.DB_POSTGRES_DATABASE?process.env.DB_POSTGRES_DATABASE:"db"  +
-               process.env.DB_POSTGRES_ENTITIES?process.env.DB_POSTGRES_ENTITIES:"entitie";  
-
-
-console.log(testEnv)
 @Module({
   imports: [
     // ConfigModule.forRoot({ envFilePath, isGlobal: true }),
@@ -50,7 +40,7 @@ console.log(testEnv)
         username: process.env.DB_POSTGRES_USER,
         password: process.env.DB_POSTGRES_PASSWORD,
         database: process.env.DB_POSTGRES_DATABASE,
-        entities:  [process.env.DB_POSTGRES_ENTITIES], //process.env.DB_POSTGRES_ENTITIES //'dist/*/entities/*.entity.{ts,js}'
+        entities: [process.env.DB_POSTGRES_ENTITIES],
         synchronize: true, //false
         ssl: true,
       }),

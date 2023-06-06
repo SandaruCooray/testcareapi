@@ -24,7 +24,7 @@ export class MedicalCertificateController {
     private readonly medicalCertificateService: MedicalCertificateService,
   ) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -42,7 +42,7 @@ export class MedicalCertificateController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get()
   async findAll(): Promise<CommonResponseHandler> {
@@ -56,7 +56,7 @@ export class MedicalCertificateController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<CommonResponseHandler> {
@@ -69,7 +69,7 @@ export class MedicalCertificateController {
     );
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

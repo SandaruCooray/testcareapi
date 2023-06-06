@@ -22,7 +22,7 @@ import { Role } from 'src/auth/role-enum/role.enum';
 export class ResultEntriesController {
   constructor(private readonly resultEntriesService: ResultEntriesService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_EIGHT, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -48,7 +48,7 @@ export class ResultEntriesController {
     return this.resultEntriesService.findOne(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_EIGHT, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

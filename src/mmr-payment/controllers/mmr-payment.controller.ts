@@ -37,7 +37,7 @@ export class MmrPaymentController {
     return this.mmrPaymentService.findOne(+id);
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

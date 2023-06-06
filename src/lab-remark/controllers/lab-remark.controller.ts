@@ -22,7 +22,7 @@ import { Role } from 'src/auth/role-enum/role.enum';
 export class LabRemarkController {
   constructor(private readonly labRemarkService: LabRemarkService) {}
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_SEVEN, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Post()
   async create(
@@ -44,7 +44,7 @@ export class LabRemarkController {
     return this.labRemarkService.findAll();
   }
 
-  @HasRoles(Role.LEVEL_FOUR)
+  @HasRoles(Role.LEVEL_SEVEN, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(
