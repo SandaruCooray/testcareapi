@@ -173,7 +173,7 @@ export class MedicalRegisterEntity {
   @Column({ nullable: true, default: false })
   public overAge: boolean;
 
-  @Column({ nullable: true, type: 'boolean', default: false })
+  @Column({ nullable: true, type: 'boolean', default: true })
   public approved: boolean;
 
   @Column({ nullable: true, type: 'varchar' })

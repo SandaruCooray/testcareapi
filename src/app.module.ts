@@ -42,7 +42,7 @@ dotenv.config();
         database: process.env.DB_POSTGRES_DATABASE,
         entities: [process.env.DB_POSTGRES_ENTITIES],
         synchronize: true, //false
-        ssl: true,
+        // ssl: true,
       }),
     }),
 

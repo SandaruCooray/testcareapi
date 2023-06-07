@@ -115,7 +115,7 @@ export class MedicalRegistersController {
     );
   }
 
-  @HasRoles(Role.LEVEL_TEN)
+  @HasRoles(Role.LEVEL_FOUR, Role.LEVEL_NINE, Role.LEVEL_TEN)
   @UseGuards(JwtAuthGuard, RolesGuard)
   @Patch(':id')
   async update(

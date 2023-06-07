@@ -101,25 +101,9 @@ export class MedicalRegisterService {
     const cityEntity = new CityEntity();
     cityEntity.id = userBasicInfo.place_of_birth;
 
-    // const medCertificate = [];
-    // if (userBasicInfo.medical_certificate.length > 0) {
-    //   for (
-    //     let index = 0;
-    //     index < userBasicInfo.medical_certificate.length;
-    //     index++
-    //   ) {
-    //     const medicalCertificateEntity = new MedicalCertificateEntity();
-    //     medicalCertificateEntity.id = userBasicInfo.medical_certificate[index];
-    //     medCertificate.push(medicalCertificateEntity);
-    //   }
-    // }
-
-    // const medicalCertificateEntity = new MedicalCertificateEntity();
     const certificates = await this.medicalCertificateService.findByIds(
       userBasicInfo.medicalCertificates,
     );
-
-    console.log('certificates', certificates);
 
     const agencyEntity = new AgencyEntity();
     agencyEntity.id = userBasicInfo.agency;
@@ -195,6 +179,7 @@ export class MedicalRegisterService {
     const result = await this.generateSerialNo();
     medicalRegisterEntity.serialNo = result.serialNo;
     medicalRegisterEntity.refNo = result.refNo;
+    medicalRegisterEntity.approvedTime = new Date();
 
     const {
       agency,
@@ -210,7 +195,6 @@ export class MedicalRegisterService {
 
     const resultObj = { ...medicalRegisterEntity, ...rest };
 
-    console.log('resultObj', resultObj);
     return resultObj;
   }
 
@@ -283,42 +267,6 @@ export class MedicalRegisterService {
       }
 
       return medicalRegInfo;
-
-      // const medicalRegInfo = await this.medicalRegistrationBasicRepository
-      //   .createQueryBuilder('user_medical_registration')
-      //   .select('user_medical_registration')
-      //   .select([
-      //     'user_medical_registration.sex',
-      //     'COUNT(user_medical_registration.sex) AS registrationCount',
-      //   ])
-      //   .leftJoinAndSelect('user_medical_registration.doctorRef', 'doctor')
-      //   .leftJoinAndSelect(
-      //     'user_medical_registration.honorificRef',
-      //     'honorific',
-      //   )
-      //   .leftJoinAndSelect(
-      //     'user_medical_registration.nationalityRef',
-      //     'nationality',
-      //   )
-      //   .leftJoinAndSelect('user_medical_registration.countryRef', 'country')
-      //   .leftJoinAndSelect('user_medical_registration.agencyRef', 'agency')
-      //   .leftJoinAndSelect(
-      //     'user_medical_registration.resultEntryRef',
-      //     'result_entry',
-      //   )
-      //   .leftJoinAndSelect('user_medical_registration.deliveryRef', 'delivery')
-      //   .leftJoinAndSelect(
-      //     'user_medical_registration.medicalIssueRef',
-      //     'medical_issue',
-      //   )
-      //   .where({ registeredDate: Between(fromDate, toDate) })
-      //   //.groupBy('user_medical_registration.id')
-      //   .getRawMany();
-      // const medicalRegInfo = await this.medicalRegistrationBasicRepository
-      //   .createQueryBuilder('user_medical_registration')
-      //   .where({ registeredDate: Between(fromDate, toDate) })
-      //   .orderBy('user_medical_registration.sex', 'ASC')
-      //   .getMany();
     } catch (error) {
       throw new HttpException(error.message, error.status);
     }
@@ -556,7 +504,7 @@ export class MedicalRegisterService {
     try {
       return await this.medicalRegistrationBasicRepository.update(id, {
         approved: status,
-        approvedTime: new Date().toISOString(),
+        approvedTime: new Date(),
       });
     } catch (error) {
       throw new HttpException(error.message, error.status);
